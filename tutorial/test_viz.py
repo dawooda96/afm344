@@ -1,8 +1,10 @@
 from bokeh.io import show, output_file
 from bokeh.models import ColumnDataSource, FactorRange
 from bokeh.plotting import figure
+from bokeh.io import export_png
 from bokeh.models import FuncTickFormatter
 import json
+import requests
 from pprint import pprint
 import os
 
@@ -82,5 +84,8 @@ p.x_range.range_padding = 0
 p.xaxis.major_label_orientation = 1.5
 p.xgrid.grid_line_color = None
 p.yaxis.visible = False
+
+export_png(p, filename="plot.png")
+
 
 show(p)
